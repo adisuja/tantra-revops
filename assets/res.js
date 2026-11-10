@@ -9,7 +9,7 @@ function leg(t){var a=document.createElement('textarea');a.value=t;a.style.posit
  ids.forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();
 (function(){var t=document.getElementById('msg');if(!t)return;var L=[['WhatsApp',400,'c'],['LinkedIn note',300,'c'],['SMS',160,'c'],['Subject line',8,'w']];
  var r=document.getElementById('msgr');function run(){var s=t.value,c=s.length,w=(s.trim().match(/\S+/g)||[]).length;r.innerHTML='';
-  var h=document.createElement('span');h.textContent=c+' characters, '+w+' words';r.appendChild(h);if(!c)return;
+  var h=document.createElement('span');h.textContent=c+(c==1?' character, ':' characters, ')+w+(w==1?' word':' words');r.appendChild(h);if(!c)return;
   L.forEach(function(x){var v=x[2]==='c'?c:w,ok=v<x[1],e=document.createElement('span');e.className=ok?'ok':'no';
    e.textContent=x[0]+': '+(ok?'fits':'over by '+(v-x[1]+1));r.appendChild(e)})}
  t.addEventListener('input',run);run()})();
